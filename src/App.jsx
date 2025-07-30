@@ -1,43 +1,37 @@
-// src/App.jsx
 import React from "react";
-import OfferBar from "./components/OfferBar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import AstroMatch from "./pages/AstroMatch";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import DiscoverCollection from "./components/DiscoverCollection";
-import CelestialMatch from "./components/CelestialMatch";
-import FeaturedPicks from "./components/FeaturedPicks";
-import RootedInRitual from "./components/RootedInRitual";
-import OccasionCollection from "./components/OccasionCollection";
-import WhyDifferent from "./components/WhyDifferent";
-import FeaturedProducts from "./components/FeaturedProducts";
-import Testimonials from "./components/Testimonials";
-import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
-import Align from "./components/Align"; // floating chatbot
-import { AlignProvider } from "./context/AlignContext"; // context provider
+import Align from "./components/Align";
+import { AlignProvider } from "./context/AlignContext";
+import Rings from "./pages/Rings";
+import Earrings from "./pages/Earrings";
+import Necklaces from "./pages/Necklaces";
+import Bracelets from "./pages/Bracelets";
+import CompleteLook from "./pages/CompleteLook";
+import CharmBox from "./pages/CharmBox";
+
 
 function App() {
   return (
     <AlignProvider>
-      <div className="min-h-screen bg-[length:400%_400%] animate-gradient-x bg-gradient-to-r from-pastelPeach via-pastelLavender to-pastelBlue">
-        {/* Top elements */}
-        <OfferBar />
+      <Router>
         <Navbar />
-        {/* Main homepage content */}
-        <Hero />
-        <DiscoverCollection />
-        <CelestialMatch />
-        <FeaturedPicks />
-        <RootedInRitual />
-        <OccasionCollection />
-        <WhyDifferent />
-        <FeaturedProducts />
-        <Testimonials />
-        <Newsletter />
-        {/* Footer and chatbot */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/rings" element={<Rings />} />
+          <Route path="/earrings" element={<Earrings />} />
+          <Route path="/necklaces" element={<Necklaces />} />
+          <Route path="/bracelets" element={<Bracelets />} />
+          <Route path="/completelook" element={<CompleteLook />} />
+          <Route path="/charmbox" element={<CharmBox />} />
+          <Route path="/astro" element={<AstroMatch />} />
+        </Routes>
         <Footer />
-        <Align /> {/* ✅ always mounted floating chat orb */}
-      </div>
+        <Align />
+      </Router>
     </AlignProvider>
   );
 }

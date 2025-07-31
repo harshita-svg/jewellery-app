@@ -64,6 +64,24 @@ export const products = [
     occasion: "Wedding",
     bestseller: true
   },
+   {
+    id: "charm-1",
+    name: "Moon Charm",
+    type: "charm",
+    price: 299,
+    occasion: "Festive Joy",
+    charms: ["🌙 Moon"],
+    image: "moon-charm.jpg",
+  },
+  {
+    id: "charm-2",
+    name: "Star Charm",
+    type: "charm",
+    price: 249,
+    occasion: "Gift Love",
+    charms: ["⭐ Star"],
+    image: "star-charm.jpg",
+  },
   {
   id: "opal-ring-elegance",
   name: "Opal Elegance Ring",

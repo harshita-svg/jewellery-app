@@ -1,6 +1,9 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col justify-between w-full max-w-xs mx-auto hover:shadow-lg transition-all duration-300">
       {/* Image Section */}
@@ -17,18 +20,35 @@ const ProductCard = ({ product }) => {
         <h3 className="text-lg font-semibold text-purple-700">
           {product.name}
         </h3>
-        <p className="text-sm text-gray-500">{product.gem}</p>
-        <p className="text-sm font-bold text-gray-800">{product.price}</p>
 
-        {/* Button */}
-        <button className="mt-3 px-5 py-2 bg-purple-600 text-white text-sm rounded-full hover:bg-purple-700 transition">
+        {product.gem && <p className="text-sm text-gray-500">{product.gem}</p>}
+
+        <p className="text-sm font-bold text-gray-800">₹{product.price}</p>
+
+        {/* Show charms if present */}
+        {product.charms && (
+          <div className="flex flex-wrap gap-1 justify-center mt-2">
+            {product.charms.map((charm, index) => (
+              <span
+                key={index}
+                className="px-2 py-0.5 bg-purple-100 text-purple-700 text-xs rounded-full"
+              >
+                {charm}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Add to Cart Button */}
+        <button
+          onClick={() => addToCart(product)}
+          className="mt-3 px-5 py-2 bg-purple-600 text-white text-sm rounded-full hover:bg-purple-700 transition"
+        >
           Add to Cart
         </button>
       </div>
     </div>
   );
 };
-
-
 
 export default ProductCard;

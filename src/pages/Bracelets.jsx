@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
-import { GiBracelet } from "react-icons/gi";
+import { FaHandSparkles } from "react-icons/fa";
 import {
   Listbox,
   ListboxButton,
@@ -43,7 +43,7 @@ const Bracelets = () => {
   return (
     <div className="min-h-screen px-4 py-10 bg-gradient-to-br from-amber-50 via-yellow-50 to-rose-50">
       <h2 className="text-4xl font-bold text-yellow-700 mb-10 text-center flex items-center justify-center gap-3">
-        <GiBracelet className="text-5xl text-yellow-500" />
+        < FaHandSparkles className="text-5xl text-yellow-500" />
         Bracelets Collection
       </h2>
 

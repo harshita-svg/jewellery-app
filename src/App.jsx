@@ -12,6 +12,11 @@ import Necklaces from "./pages/Necklaces";
 import Bracelets from "./pages/Bracelets";
 import CompleteLook from "./pages/CompleteLook";
 import CharmBox from "./pages/CharmBox";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import Payment from "./pages/Payment";
+
+
 
 
 function App() {
@@ -28,6 +33,9 @@ function App() {
           <Route path="/completelook" element={<CompleteLook />} />
           <Route path="/charmbox" element={<CharmBox />} />
           <Route path="/astro" element={<AstroMatch />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
         <Footer />
         <Align />

@@ -1,8 +1,11 @@
 import React from "react";
 import { FaSearch, FaHeart, FaShoppingBag, FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
+  const { cartItems } = useCart(); // ✅ Correct placement outside return
+
   return (
     <nav className="bg-gradient-to-b from-white/90 to-[#fbe7f3]/60 backdrop-blur-md text-gray-800 py-3 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6">
@@ -40,7 +43,7 @@ const Navbar = () => {
         </div>
 
         {/* Icon Set */}
-        <div className="flex items-center gap-4 text-xl text-gray-700">
+        <div className="flex items-center gap-4 text-xl text-gray-700 relative">
           <FaSearch
             className="cursor-pointer hover:text-purple-600 transition"
             title="Search"
@@ -49,10 +52,19 @@ const Navbar = () => {
             className="cursor-pointer hover:text-purple-600 transition"
             title="Wishlist"
           />
-          <FaShoppingBag
-            className="cursor-pointer hover:text-purple-600 transition"
-            title="Cart"
-          />
+
+          {/* 🛒 Cart Icon with Live Count */}
+          <Link to="/cart" className="relative">
+            <FaShoppingBag
+              className="cursor-pointer hover:text-purple-600 transition"
+              title="Cart"
+            />
+            {cartItems.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-purple-600 text-white text-xs px-1.5 py-0.5 rounded-full">
+                {cartItems.length}
+              </span>
+            )}
+          </Link>
         </div>
       </div>
     </nav>
